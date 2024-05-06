@@ -1,0 +1,32 @@
+{% extends 'mainsite/base.html' %}
+{% block content %}
+<div class="main" style="display: flex;">
+    {% include 'mainsite/includes/sidebar_pupil.html' %}
+    <div class="content" style="width: 90%; display: block; margin: 50px;">
+        <div style="display: flex;">
+            <a href="{% url 'add_post' course_id=course_id %}"
+               style="text-decoration: none; color: black; border: 1px solid gray; padding: 2px 4px; border-radius: 3px;">Create
+                post</a><a href="?" style="vertical-align: middle; text-decoration: none; color: black; padding: 2px 10px;">Усі</a>
+                {% for category in categories %}
+                    <a href="?category={{ category.name }}" style="vertical-align: middle; text-decoration: none; color: black; padding: 2px 10px;">{{ category.name }}</a>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div style="margin-top: 50px;">
+            {% for post in posts %}
+            <hr>
+            <h2>{{post.title}}</h2>
+            <p class="lead">by {{post.user}}</p>
+            <p><span class="glyphicon glyphicon-time"></span> Posted on {{ post.published_date }}</p>
+            <p style="overflow: hidden; max-width: 185ch; white-space: nowrap; text-overflow: ellipsis;">{{ post.content }}</p>
+            <a class="btn btn-primary" href="{% url 'post' title=post.title %}">Read More
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

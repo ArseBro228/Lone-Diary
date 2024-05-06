@@ -1,0 +1,21 @@
+{% extends 'mainsite/base.html' %}
+{% block content %}
+<div class="main" style="display: flex;">
+    {% include 'mainsite/includes/sidebar_pupil.html' %}
+    <div class="content" style="width: 90%; display: block; margin: 50px;">
+        <div class="row" style="padding-top: 10px; padding-bottom: 320px;">
+            {% for course in courses %}
+                <div class="col-sm-3" style="margin-top: 10px;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{course.title}}</h5>
+                            <p class="card-text">Posts: {{course.posts_amount}}</p>
+                            <a href="{% url 'posts' course_id=course.id %}" class="btn btn-primary" style="float: right;">Enter!</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

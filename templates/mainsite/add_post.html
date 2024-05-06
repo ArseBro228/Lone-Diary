@@ -1,0 +1,17 @@
+{% extends 'mainsite/base.html' %}
+{% block content %}
+<div class="main" style="display: flex;">
+    {% include 'mainsite/includes/sidebar_pupil.html' %}
+        <div class="content" style="width: 90%; display: block; margin: 10px 50px;">
+
+            <h1>Create new post</h1>
+            <form action="{% url 'add_post' course_id=course_id %}" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="save" class="btn btn-default">
+            </form>
+
+        <!--        сюда пиши контент, инклюд вне флекса ломал всё-->
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'mainsite/base.html' %}
+{% block content %}
+
+
+<div class="main" style="display: flex;">
+    {% include 'mainsite/includes/sidebar_pupil.html' %}
+    <div class="content" style="width: 90%; display: block;">
+        <br>
+        <h2 align="center">News</h2>
+        <h5 align="center">Hi {{ user.username }}, there are new posts.</h5>
+        <div style="width: 90%; display: block; margin: 50px;">
+            {% for post in posts %}
+                <hr>
+                <h2>{{post.title}}</h2>
+                <p class="lead">by {{post.user}}</p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{ post.published_date }}</p>
+                <p style="overflow: hidden; max-width: 185ch; white-space: nowrap; text-overflow: ellipsis;">{{ post.content }}</p>
+                <a class="btn btn-primary" href="{% url 'post' title=post.title %}">Read More
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

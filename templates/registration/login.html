@@ -1,0 +1,36 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+<
+<div class="shadow-wrap">
+    <div class="form-wrap">
+        <form method="post">
+            <h1>Login</h1>
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Submit</button>
+            <a class="signup-link" href="{% url 'password_reset' %}">Forgot Password</a>
+            <a class="signup-link" href="{% url 'register' %}">Signup</a>
+            
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="login_form" style="margin: 0 auto; align-items: center; text-align: center;">
+
+    <h1>Login</h1>
+    <hr>
+    <form action="{% url 'login' %}" method="post">
+        {{ form }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-succes">Submit</button>
+        <a href="{% url 'register' %}">Register</a>
+    </form>
+    <a href="{% url 'password_reset' %}">Forgot password?</a>
+</div> -->
+
+{% endblock %}
