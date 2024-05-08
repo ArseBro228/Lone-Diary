@@ -1,9 +1,39 @@
 {% extends 'mainsite/base.html' %}
 {% block content %}
-<div class="main" style="display: flex;">
+{% load static %}
+
+<div class="main"
+     style="display: flex;  background: rgb(0,0,0); background: linear-gradient(90deg, rgba(0,0,0,1) 47%, rgba(255,255,255,1) 100%, rgba(0,212,255,1) 100%);">
     {% include 'mainsite/includes/sidebar_pupil.html' %}
     <div class="content" style="width: 90%; display: block; margin: 50px;">
 
+        <div class="flexed" style="display: flex; justify-content: space-around;">
+            <div class="card" style="width: 26rem; height: auto;">
+                <img class="card-img-top" src="{% static 'mainsite/assets/Arsen.jpg' %}" alt="Card image cap"
+                     style="width: 26rem; height: 600px; padding: 2px 4px 2px 2px;">
+                <div class="card-body">
+                    <h1 class="card-text" style="text-align: center;">Arsen Iaseshvili</h1>
+
+                </div>
+                <a href="https://t.me/MarvelSiteCreator"
+                   style="text-align: center; text-decoration: none; color: black; font-weight: bold; padding-bottom: 10px;">Telegram</a>
+            </div>
+            <div>
+                <h1 style="text-align: center; margin-right: 0.5em; color: gray; font-weight: bold;">Gang:</h1>
+                <audio controls autoplay>
+                    <source src="{% static 'mainsite/assets/sound.mp3' %}" type="audio/mpeg">
+                </audio>
+            </div>
+            <div class="card" style="width: 28rem; height: auto; background-color: black;">
+                <img class="card-img-top" src="{% static 'mainsite/assets/Roma.jpg' %}" alt="Card image cap"
+                     style="width: 28rem; height: 600px; padding: 2px 4px 2px 2px; background-color: black;">
+                <div class="card-body" style="background-color: black;">
+                    <h1 class="card-text" style="text-align: center; color: white;">Roman Sinchuk</h1>
+                </div>
+                <a href="https://t.me/sinchyykk"
+                   style="text-align: center; text-decoration: none; color: white; font-weight: bold; padding-bottom: 10px;">Telegram</a>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

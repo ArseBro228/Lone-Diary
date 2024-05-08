@@ -15,7 +15,6 @@ urlpatterns = [
                   # path('password_reset',ResetPasswordView.as_view(), name = 'password_reset'),
                   path('news', views.news, name='news'),
                   path('profile', views.profile, name='profile'),
-                  path('status', views.status, name='status'),
                   path('', include('django.contrib.auth.urls')),
                   path('subjects', views.subjects, name='subjects'),
                   path('add_post/<course_id>', views.add_post, name='add_post'),

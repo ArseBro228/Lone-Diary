@@ -1,17 +1,48 @@
 {% extends 'mainsite/base.html' %}
 {% block content %}
+{% load static %}
+<style>
+    .shadow-wrap{
+    border-radius: 20px;
+    padding: 10px;
+    background-color:#F0F2FB;
+   }
+   .form-wrap{
+    background-color: #fff;
+   padding: 50px;
+   }
+   .form-wrap form *{
+    display: block;
+    width: 100%;
+   }
+   .form-wrap form label{
+   margin-bottom: 5px;
+   font-size: 20px;
+   font-weight: 700;
+   line-height: 26px;
+   }
+   .form-wrap form input{
+   padding: 16px 80px;
+   border-radius: 5px;
+   border: 1px solid #DAE1F5;
+   background: #FFF;
+   color: #545D7A;
+   }
+</style>
+
 <div class="main" style="display: flex;">
     {% include 'mainsite/includes/sidebar_pupil.html' %}
-        <div class="content" style="width: 90%; display: block; margin: 10px 50px;">
-
-            <h1>Create new post</h1>
-            <form action="{% url 'add_post' course_id=course_id %}" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="save" class="btn btn-default">
-            </form>
-
-        <!--        сюда пиши контент, инклюд вне флекса ломал всё-->
+    <div class="content" style="width: 40%; display: block; margin: 0 auto;">
+        <h1 align="center">Create new post</h1>
+        <div class="shadow-wrap">
+            <div class="form-wrap">
+                <form action="{% url 'add_post' course_id=course_id %}" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="save" class="btn btn-default">
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

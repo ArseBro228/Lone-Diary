@@ -35,10 +35,6 @@ def profile(request):
     return render(request, 'mainsite/profile.html')
 
 
-def status(request):
-    return render(request, 'mainsite/status.html')
-
-
 def subjects(request):
     courses = Course.objects.all()
     context = {

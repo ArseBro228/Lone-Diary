@@ -1,13 +1,23 @@
 {% extends 'mainsite/base.html' %}
 {% block content %}
+<style>
+    pre {
+        white-space: pre-wrap;
+        overflow: auto;
+        width: 100%;
+        float: left;
+        margin: .5em;
+        min-height: 7em;
+    }
+</style>
 <div class="main" style="display: flex;">
     {% include 'mainsite/includes/sidebar_pupil.html' %}
     <div class="content" style="width: 90%; display: block; margin: 50px;">
         <h2>{{post.title}}</h2>
         <p class="lead">by {{post.user}}</p>
         <p><span class="glyphicon glyphicon-time"></span> Posted on {{ post.published_date }}</p>
-        <p>{{ post.content }}</p>
-        <a href="/subjects" style="text-decoration: none; color: black; border: 1px solid gray; border-radius: 2px; padding: 2px 5px;">Go to subjects.</a>
+        <pre>{{ post.content }}</pre>
+        <a href="/subjects" style="text-decoration: none; color: black; border: 1px solid gray; border-radius: 2px; padding: 2px 5px;">Go back to subjects.</a>
     </div>
 </div>
 {% endblock %}

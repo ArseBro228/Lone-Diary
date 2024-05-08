@@ -47,7 +47,7 @@ class Course(models.Model):
 
 class Lesson(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="Курс", null=True)
-    title = models.CharField(max_length=30, verbose_name="Заголовок")
+    title = models.CharField(max_length=90, verbose_name="Заголовок")
     content = models.TextField(verbose_name="Опис")
     published_date = models.DateTimeField(auto_created=True, verbose_name="Дата")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Категорія")
